@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FaqPanel.Views.Controls"
+             xmlns:converters="clr-namespace:FaqPanel.Converters"
+             x:Class="FaqPanel.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NegateBooleanConverter x:Key="NegateBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="FAQ" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <controls:Repeater x:Name="FaqPanel" HorizontalOptions="FillAndExpand" Margin="25" ItemSource="{Binding FaqList}">
+            <controls:Repeater.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+                            <controls:Separator Margin="5,0,5,10" />
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="0" Padding="5">
+                                <Label FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="0" Text="{Binding Question}" VerticalOptions="Start" />
+                                <Image Source="down_arrow" HorizontalOptions="End" IsVisible="{Binding IsExpanded, Converter={StaticResource NegateBooleanConverter}}" Margin="5,10,0,10"  VerticalOptions="Start" />
+                                <Image Source="up_arrow" HorizontalOptions="End" IsVisible="{Binding IsExpanded}" Margin="5,10,0,10"  VerticalOptions="Start" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="QuestionTapped" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Label Text="{Binding Answer}" IsVisible="{Binding IsExpanded}" Padding="5" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:Repeater.ItemTemplate>
+        </controls:Repeater>
+    </StackLayout>
+
+</ContentPage>
