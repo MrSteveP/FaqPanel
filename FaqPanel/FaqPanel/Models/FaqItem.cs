@@ -6,7 +6,7 @@ using System.Text;
 using FaqPanel.Converters;
 using Xamarin.Forms;
 
-namespace FaqPanel.Views.Controls
+namespace FaqPanel.Models
 {
     public class FaqItem : INotifyPropertyChanged
     {

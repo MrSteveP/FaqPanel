@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FaqPanel.Views.Controls;
+using FaqPanel.Models;
 using Xamarin.Forms;
 
 namespace FaqPanel
