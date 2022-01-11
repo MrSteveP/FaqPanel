@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using FaqPanel;
-using FaqPanel.Views.Controls;
 using Xamarin.Forms;
 
 namespace FaqPanel.Views.Controls

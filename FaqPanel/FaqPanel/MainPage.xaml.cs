@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FaqPanel.Models;
 using Xamarin.Forms;
 
@@ -27,19 +22,13 @@ namespace FaqPanel
 
         private void QuestionTapped(object sender, System.EventArgs e)
         {
-            Debug.WriteLine("Question Tapped");
-            Debug.WriteLine(sender);
-
             if (sender != null && sender is StackLayout)
             {
-                FaqItem currentItem = null;
-
                 StackLayout questionBar = (StackLayout)sender;
-                Debug.WriteLine(questionBar.BindingContext);
 
-                if (questionBar.BindingContext != null)
+                if (questionBar.BindingContext != null && questionBar.BindingContext is FaqItem)
                 {
-                    currentItem = (FaqItem)questionBar.BindingContext;
+                    FaqItem currentItem = (FaqItem)questionBar.BindingContext;
                     bool currentlyExpanded = currentItem.IsExpanded;
 
                     foreach (FaqItem item in FaqList)

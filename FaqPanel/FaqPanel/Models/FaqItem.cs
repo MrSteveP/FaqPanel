@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using FaqPanel.Converters;
-using Xamarin.Forms;
+﻿using System.ComponentModel;
 
 namespace FaqPanel.Models
 {
